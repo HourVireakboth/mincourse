@@ -13,7 +13,7 @@ export default function LessonDynamic({
     <div className=" mb-10 border-2 border-sky-500 p-10  ">
       <div className=" flex justify-between">
         <h1 className="text-left font-bold font-mono mb-10 ">
-          Lesson {lessonIndex + 1}{" "}
+          Lessons {lessonIndex + 1}{" "}
         </h1>
         <Button
           label="Remove Lesson"
