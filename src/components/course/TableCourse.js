@@ -47,7 +47,7 @@ export default function TableCourse({ data, onDelete, onEditCourses, isEdit }) {
                     {item.id}
                   </td>
                   <td className="px-6 py-4">{item.name}</td>
-                  <td className="px-6 py-4">{item.summarize}</td>
+                  <td className="px-6 py-4">{item.summary}</td>
                   <td className="px-6 py-4">{item.category_id}</td>
                   <td className="px-6 py-4">{item.total_chapters}</td>
                   <td className="px-6 py-4">{item.total_lessons}</td>
@@ -55,12 +55,12 @@ export default function TableCourse({ data, onDelete, onEditCourses, isEdit }) {
                     <button
                       className="text-blue-600 mr-2"
                       onClick={() => {
+                        console.log(isEdit);
                         if (!isEdit) {
                           onEditCourses(item.id, true);
                           return;
                         }
                         onEditCourses(item.id, false);
-                        console.log(isEdit);
                       }}
                     >
                       Edit

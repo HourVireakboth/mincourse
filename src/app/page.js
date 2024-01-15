@@ -25,7 +25,7 @@ export default function Home() {
   const onEditCategory = (form) => {
     console.log(form);
     setCategorys((prev) =>
-      prev.map((item) => (item.id === form.id ? { ...prev, ...form } : prev))
+      prev.map((item) => (item.id === form.id ? { ...prev, ...form } : item))
     );
   };
 
@@ -50,12 +50,11 @@ export default function Home() {
     return result;
   }, [courses]);
 
-
   const onAddCourse = (form) => {
     console.log(form.id);
     if (isEdit) {
       setIsEdit((pre) => !pre);
-
+      setIsEditCourse({});
       setCourses((prev) => {
         return prev.map((item) =>
           item.id === form.id ? { ...prev, ...form } : item
@@ -73,6 +72,7 @@ export default function Home() {
       setIsEditCourse(courses.find((course) => course.id === id));
       return;
     }
+    setIsEditCourse({});
     setIsEdit((pre) => !pre);
     console.log(courses.find((course) => course.id === id));
   };
