@@ -26,6 +26,9 @@ export default function TableCourse({ data, onDelete, onEditCourses, isEdit }) {
                 Categories
               </th>
               <th scope="col" className="px-6 py-3">
+                Tags
+              </th>
+              <th scope="col" className="px-6 py-3">
                 total chapters
               </th>
               <th scope="col" className="px-6 py-3">
@@ -49,6 +52,7 @@ export default function TableCourse({ data, onDelete, onEditCourses, isEdit }) {
                   <td className="px-6 py-4">{item.name}</td>
                   <td className="px-6 py-4">{item.summary}</td>
                   <td className="px-6 py-4">{item.category_id}</td>
+                  <td className="px-6 py-4">{item.tags.length}</td>
                   <td className="px-6 py-4">{item.total_chapters}</td>
                   <td className="px-6 py-4">{item.total_lessons}</td>
                   <td>

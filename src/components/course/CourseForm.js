@@ -4,6 +4,7 @@ import { CustomSeleted } from "../CustomSelect";
 import { CustomTextAreaInput } from "../CustomTextAreaInput";
 import ChapterDynamicForm from "../chapter/ChapterDynamicForm";
 import { CourseSchemas } from "@/schemas";
+import { CustomMultipleSelect } from "../CustomMutiSelect";
 import { useState } from "react";
 import { Button } from "../Button";
 import { uuidv4 } from "@/util";
@@ -19,6 +20,7 @@ export default function CourseForm({
     name: "",
     category_id: "",
     summary: "",
+    tags: [],
     chapters: [
       {
         id: uuidv4(),
@@ -39,7 +41,7 @@ export default function CourseForm({
     push({
       id: uuidv4(),
       name: "",
-      summarize: "",
+      summary: "",
       lessons: [
         {
           id: uuidv4(),
@@ -95,6 +97,14 @@ export default function CourseForm({
                   placeholder="Please Select Your Category"
                   name={"category_id"}
                   component={CustomSeleted}
+                />
+                <Field
+                  id={onEditCourse?.id}
+                  label="Customize Your Tag"
+                  data={props?.values?.tags}
+                  name={"tags"}
+                  placeholder="Choose a Tag"
+                  component={CustomMultipleSelect}
                 />
                 <Field
                   name="summary"
