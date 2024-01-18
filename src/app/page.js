@@ -2,37 +2,41 @@
 import CategoriesManagement from "@/components/category/CategoriesManagement";
 import TableCourse from "@/components/course/TableCourse";
 import CourseForm from "@/components/course/CourseForm";
-import { useState, useMemo } from "react";
+import { useState, useContext, useMemo } from "react";
+import { CategoryContext } from "@/store/store_context";
 
 import { uuidv4 } from "@/util";
 export default function Home() {
-  const [categorys, setCategorys] = useState([
-    {
-      id: "12835ce6-163e-402b-b500-5651fd4d8091",
-      name: "Mobile App",
-      code: "111",
-    },
-    {
-      id: "3a7f8b92-75e1-4c6d-a41e-9f93f62a72bc",
-      name: "Web development",
-      code: "222",
-    },
-    {
-      id: "87dce4c1-2bfc-4a6e-9e68-1f1e5c4b9d20",
-      name: "Computer Network",
-      code: "333",
-    },
-    {
-      id: "c43d9b55-9f61-4967-bd06-83217a841d14",
-      name: "IT Support",
-      code: "444",
-    },
-    {
-      id: "f95c8277-2683-4971-a564-8e1453ab26a5",
-      name: "Design",
-      code: "555",
-    },
-  ]);
+  const { category_items } = useContext(CategoryContext);
+
+  // const [categorys, setCategorys] = useState([
+  //   {
+  //     id: "12835ce6-163e-402b-b500-5651fd4d8091",
+  //     name: "Mobile App",
+  //     code: "111",
+  //   },
+  //   {
+  //     id: "3a7f8b92-75e1-4c6d-a41e-9f93f62a72bc",
+  //     name: "Web development",
+  //     code: "222",
+  //   },
+  //   {
+  //     id: "87dce4c1-2bfc-4a6e-9e68-1f1e5c4b9d20",
+  //     name: "Computer Network",
+  //     code: "333",
+  //   },
+  //   {
+  //     id: "c43d9b55-9f61-4967-bd06-83217a841d14",
+  //     name: "IT Support",
+  //     code: "444",
+  //   },
+  //   {
+  //     id: "f95c8277-2683-4971-a564-8e1453ab26a5",
+  //     name: "Design",
+  //     code: "555",
+  //   },
+  // ]);
+
   const [courses, setCourses] = useState([
     {
       id: 1,
@@ -241,7 +245,7 @@ export default function Home() {
       <div className="m-10">
         <CategoriesManagement
           onSave={onSaveCateorys}
-          data={categorys}
+          data={category_items}
           onDetele={onDeleteCategory}
           onEdit={onEditCategory}
         />
@@ -252,7 +256,7 @@ export default function Home() {
           isEdit={isEdit}
         />
         <CourseForm
-          categoryData={categorys}
+          categoryData={category_items}
           onAdd={onAddCourse}
           onEditCourse={isEditCourse}
           isEdit={isEdit}

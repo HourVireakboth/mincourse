@@ -1,5 +1,5 @@
 import { ErrorMessage } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import Creatable from "react-select/creatable";
 
@@ -18,6 +18,17 @@ export const CustomMultipleSelect = ({
       label: select,
     };
   });
+
+  const [createTags, setCreateTags] = useState([
+    "Web development",
+    "Mobile development",
+    "UX and UI Design",
+    "Graghic Design",
+    "Computer Network",
+    "IT Support",
+    "Other",
+  ]);
+
   console.log(id);
 
   return (
@@ -25,6 +36,7 @@ export const CustomMultipleSelect = ({
       <div className=" flex flex-col mx-5">
         <label> {label} </label>
         <Creatable
+          // onCreateOption={}
           className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder={placeholder}
           closeMenuOnSelect={false}
@@ -33,15 +45,7 @@ export const CustomMultipleSelect = ({
           options={
             // !id
             //   ?
-            [
-              "Web development",
-              "Mobile development",
-              "UX and UI Design",
-              "Graghic Design",
-              "Computer Network",
-              "IT Support",
-              "Other",
-            ].map((tag) => ({ value: tag, label: tag }))
+            createTags.map((tag) => ({ value: tag, label: tag }))
             //   : data.map((tag) => ({ value: tag, label: tag }))
           }
           onChange={(data) => {
