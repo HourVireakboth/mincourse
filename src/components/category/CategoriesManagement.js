@@ -15,7 +15,7 @@ export default function CategoriesManagement({
     setIsEditData(data.find((dt) => dt.id === id));
     setIsShowModal(true);
   };
-  
+
   return (
     <>
       {isShowModal && (
