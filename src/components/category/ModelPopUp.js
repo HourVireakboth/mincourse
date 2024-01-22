@@ -6,13 +6,15 @@ import { Formik, Form, Field } from "formik";
 export const ModalForm = ({ setIsShowModal, onSave, isEditData, onEdit }) => {
   const onClick = (values) => {
     if (isEditData.id) {
+      console.log("true");
       onEdit(values);
       setIsShowModal(false);
     } else {
+      console.log("true");
       onSave(values);
     }
   };
-
+  
   return (
     <Formik
       initialValues={{

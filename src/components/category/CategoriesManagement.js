@@ -10,7 +10,6 @@ export default function CategoriesManagement({
 }) {
   const [isShowModal, setIsShowModal] = useState(false);
   const [isEditData, setIsEditData] = useState({});
-
   const onSelectEdit = (id) => {
     setIsEditData(data.find((dt) => dt.id === id));
     setIsShowModal(true);
